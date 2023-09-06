@@ -52,11 +52,11 @@ module.exports = {
 
     '@typescript-eslint/naming-convention': [
       'error',
-      { 'selector': 'variableLike', 'format': ['camelCase'] },
+      { 'selector': 'variableLike', 'format': ['camelCase', 'UPPER_CASE'] },
       {
         'selector': 'variable',
         'types': ['boolean'],
-        'format': ['camelCase'],
+        'format': ['camelCase', 'UPPER_CASE'],
         'prefix': ['is', 'should', 'has', 'can', 'did', 'will'],
       },
       {

@@ -6,7 +6,10 @@
   "scripts": {
     "start:dev": "nest start --watch",
     "lint": "eslint \"{src,test}/**/*.ts\" --config .eslintrc.js",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "migration:create": "typeorm-ts-node-commonjs migration:create",
+    "migration:run": "typeorm-ts-node-commonjs -d src/database/database.datasource.ts migration:run",
+    "migration:revert": "npx typeorm-ts-node-commonjs -d src/database/database.datasource.ts migration:revert"
   },
   "keywords": [],
   "author": "",
