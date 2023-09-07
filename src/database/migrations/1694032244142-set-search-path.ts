@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 import 'dotenv/config';
 
-const { DB_NAME, DB_SCHEMA} = process.env;
+const { DB_NAME, DB_SCHEMA } = process.env;
 
 export class SetSearchPath1694032244142 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {

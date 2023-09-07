@@ -1,8 +1,6 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 import 'dotenv/config';
 
-const { DB_SCHEMA } = process.env;
-
 export class CreateTableLanguages1694032244144 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(`
@@ -35,6 +33,6 @@ export class CreateTableLanguages1694032244144 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.query(`DROP TABLE languages`);
+    await queryRunner.query('DROP TABLE languages');
   }
 }
