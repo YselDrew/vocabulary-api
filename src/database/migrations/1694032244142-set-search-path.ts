@@ -3,9 +3,9 @@ import 'dotenv/config';
 
 const { DB_NAME, DB_SCHEMA} = process.env;
 
-export class CreateExtensionUuidOssp1694032244143 implements MigrationInterface {
+export class SetSearchPath1694032244142 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
+    await queryRunner.query(`ALTER DATABASE ${DB_NAME} SET SEARCH_PATH TO ${DB_SCHEMA}`);
   }
 
   public async down(): Promise<void> {}
