@@ -31,7 +31,6 @@ export class WordValidationService {
 
   async validateWordExist(wordId: string): Promise<void> {
     const doesExist = await this.wordRepository.exist({ where: { wordId } });
-    console.log({ doesExist });
 
     if (!doesExist) {
       throw new NotFoundException({

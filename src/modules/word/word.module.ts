@@ -6,10 +6,9 @@ import { WordService } from './services/word.service';
 import { WordController } from './word.controller';
 import { Word } from './word.entity';
 import { WordsRepository } from './word.repository';
-import { DictionaryModule } from '../dictionary/dictionary.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Word]), DictionaryModule],
+  imports: [TypeOrmModule.forFeature([Word])],
   controllers: [WordController],
   providers: [WordService, WordValidationService, WordsRepository],
   exports: [],

@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { Dictionary } from './dictionary.entity';
 import { CreateDictionary, SelectDictionaryListQueryResult, UpdateDictionaryOptions } from './types/dictionary.types';
 import { Language } from '../language/language.entity';
+import { Word } from '../word/word.entity';
 
 @Injectable()
 export class DictionariesRepository extends Repository<Dictionary> {
@@ -19,7 +20,7 @@ export class DictionariesRepository extends Repository<Dictionary> {
     await this.save(dictionary);
   }
 
-  async selectMany(): Promise<SelectDictionaryListQueryResult[]> {
+  selectMany(): Promise<SelectDictionaryListQueryResult[]> {
     return this.createQueryBuilder('d')
       .select([
         'dictionary_id AS "dictionaryId"',
@@ -44,5 +45,13 @@ export class DictionariesRepository extends Repository<Dictionary> {
 
   async deleteOne(dictionaryId: string): Promise<void> {
     await this.delete(dictionaryId);
+  }
+
+  hasWords(dictionaryId: string): Promise<boolean> {
+    return this
+      .createQueryBuilder('d')
+      .innerJoin(Word, 'w', 'w.dictionary_id = d.dictionary_id')
+      .where('d.dictionary_id = :dictionaryId', { dictionaryId })
+      .getExists();
   }
 }
