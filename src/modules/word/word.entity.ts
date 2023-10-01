@@ -35,8 +35,11 @@ export class Word {
     type: 'text',
     nullable: true,
   })
-  example: null | string;
+  example: string | null;
 
-  @CreateDateColumn()
+  @CreateDateColumn({
+    name: 'created_at',
+    type: 'timestamptz',
+  })
   createdAt: string;
 }

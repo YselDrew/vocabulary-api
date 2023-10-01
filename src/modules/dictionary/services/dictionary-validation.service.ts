@@ -15,13 +15,13 @@ export class DictionaryValidationService {
     await this.validateDictionaryExist(dictionaryId);
   }
 
-  private async validateDictionaryExist(dictionaryId: string): Promise<void> {
-    const doesExist = this.dictionaryRepository.exist({ where: { dictionaryId } });
+  async validateDictionaryExist(dictionaryId: string): Promise<void> {
+    const doesExist = await this.dictionaryRepository.exist({ where: { dictionaryId } });
 
     if (!doesExist) {
       throw new NotFoundException({
         status: HttpStatus.NOT_FOUND,
-        error: 'Dictionary with provided id does not exist',
+        error: 'Dictionary does not exist',
       });
     }
   }

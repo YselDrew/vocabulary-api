@@ -9,7 +9,7 @@ export class CreateTableWords1696168271581 implements MigrationInterface {
         word              VARCHAR(255)    NOT NULL,
         translation       VARCHAR(255)    NOT NULL,
         example           TEXT            NULL,
-        created_at        TIMESTAMPTZ     NOT NULL,
+        created_at        TIMESTAMPTZ     NOT NULL    DEFAULT CURRENT_TIMESTAMP,
         CONSTRAINT words_pk 
           PRIMARY KEY (word_id),
 				CONSTRAINT words_dictionary_id_fk 

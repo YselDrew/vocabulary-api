@@ -11,6 +11,6 @@ import { DictionaryService } from './services/dictionary.service';
   imports: [TypeOrmModule.forFeature([Dictionary])],
   controllers: [DictionaryController],
   providers: [DictionaryService, DictionaryValidationService, DictionariesRepository],
-  exports: [],
+  exports: [DictionaryValidationService],
 })
 export class DictionaryModule {}
