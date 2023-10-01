@@ -45,7 +45,7 @@ module.exports = {
     'eqeqeq': 'error',
     'no-console': 'error',
     'no-await-in-loop': 'error',
-    'max-len': ['error', { code: 100, 'ignorePattern': '^import\\s.+\\sfrom\\s.+;$'}],
+    'max-len': ['error', { code: 120, 'ignorePattern': '^import\\s.+\\sfrom\\s.+;$'}],
     'quotes': ['error', 'single'],
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'no-multi-spaces': 'error',

@@ -3,7 +3,7 @@ import { ApiExtraModels, ApiOkResponse, ApiOperation, getSchemaPath } from '@nes
 
 import { LanguageResponseDto } from '../dtos/get-language-list.dto';
 
-export const GetLanguageListSwaggerDecorator = (): any =>
+export const GetLanguageListSwaggerDecorator = (): MethodDecorator =>
   applyDecorators(
     ApiOperation({
       summary: 'Returns list of languages',
@@ -11,16 +11,12 @@ export const GetLanguageListSwaggerDecorator = (): any =>
     ApiOkResponse({
       description: 'List of languages for succefully received',
       schema: {
-        allOf: [
-          {
-            properties: {
-              results: {
-                type: 'array',
-                items: { $ref: getSchemaPath(LanguageResponseDto) },
-              },
-            },
+        properties: {
+          results: {
+            type: 'array',
+            items: { $ref: getSchemaPath(LanguageResponseDto) },
           },
-        ],
+        },
         example: getLanguageListResponse,
       },
     }),

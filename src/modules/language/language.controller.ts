@@ -2,8 +2,8 @@ import { Controller, Get, HttpCode, HttpStatus } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
 import { LanguageService } from './language.service';
-import { SelectLanguageListQueryResponse } from './types/language.types';
 import { GetLanguageListSwaggerDecorator } from './swagger/get-language-list-swagger.decorator';
+import { SelectLanguageListQueryResponse } from './types/language.types';
 
 @ApiTags('Languages')
 @Controller('/languages')
