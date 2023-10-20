@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { Vocabulary } from './vocabulary.entity';
 import { CreateVocabulary, SelectVocabularyListQueryResult, UpdateVocabularyOptions } from './types/vocabulary.types';
+import { Vocabulary } from './vocabulary.entity';
 import { Language } from '../language/language.entity';
 import { Word } from '../word/word.entity';
 
@@ -48,8 +48,7 @@ export class VocabulariesRepository extends Repository<Vocabulary> {
   }
 
   hasWords(vocabularyId: string): Promise<boolean> {
-    return this
-      .createQueryBuilder('d')
+    return this.createQueryBuilder('d')
       .innerJoin(Word, 'w', 'w.vocabulary_id = d.vocabulary_id')
       .where('d.vocabulary_id = :vocabularyId', { vocabularyId })
       .getExists();

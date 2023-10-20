@@ -1,6 +1,7 @@
 import { ConflictException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
-import { VocabulariesRepository } from '../vocabulary.repository';
+
 import { UpdateVocabularyOptions } from '../types/vocabulary.types';
+import { VocabulariesRepository } from '../vocabulary.repository';
 
 @Injectable()
 export class VocabularyValidationService {

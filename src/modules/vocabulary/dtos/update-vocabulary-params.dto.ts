@@ -1,3 +1,3 @@
-import { VocabularyIdDto } from "./vocabulary-id.dto";
+import { VocabularyIdDto } from './vocabulary-id.dto';
 
 export class UpdateVocabularyParamsDto extends VocabularyIdDto {}

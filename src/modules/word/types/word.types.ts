@@ -1,8 +1,8 @@
 import { SortOrder } from 'src/constants/sort-order';
+import { Vocabulary } from 'src/modules/vocabulary/vocabulary.entity';
 
 import { GetWordListSortValue } from '../constants/word.constants';
 import { Word } from '../word.entity';
-import { Vocabulary } from 'src/modules/vocabulary/vocabulary.entity';
 
 /*
   Create Words

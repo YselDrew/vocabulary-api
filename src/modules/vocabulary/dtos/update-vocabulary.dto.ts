@@ -1,4 +1,5 @@
 import { IsOptional } from 'class-validator';
+
 import { CreateVocabularyDto } from './create-vocabulary.dto';
 
 export class UpdateVocabularyDto extends CreateVocabularyDto {

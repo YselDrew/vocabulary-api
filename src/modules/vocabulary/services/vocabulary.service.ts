@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
 import { VocabularyValidationService } from './vocabulary-validation.service';
-import { VocabulariesRepository } from '../vocabulary.repository';
 import {
   CreateVocabularyOptions,
   SelectVocabularyListQueryResult,
   UpdateVocabularyOptions,
 } from '../types/vocabulary.types';
+import { VocabulariesRepository } from '../vocabulary.repository';
 
 @Injectable()
 export class VocabularyService {
