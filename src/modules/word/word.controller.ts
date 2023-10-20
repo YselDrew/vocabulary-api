@@ -12,34 +12,34 @@ import { ReplaceWordDto } from './dtos/replace-word.dto';
 import { WordService } from './services/word.service';
 
 @ApiTags('Words')
-@Controller('/dictionaries/:dictionaryId/words')
+@Controller('/vocabularies/:vocabularyId/words')
 export class WordController {
   constructor(private wordService: WordService) {}
 
   @Post()
   async createMany(
-    @Param() { dictionaryId }: CreateWordParamsDto,
+    @Param() { vocabularyId }: CreateWordParamsDto,
     // This approach requires enhancement
     @Body(ArrayValidationPipe(CreateWordDto)) createWordsDto: CreateWordDto[],
   ): Promise<void> {
-    await this.wordService.createMany({ dictionaryId, words: createWordsDto });
+    await this.wordService.createMany({ vocabularyId, words: createWordsDto });
   }
 
   @Get()
   getList(
-    @Param() { dictionaryId }: GetWordListParamsDto,
+    @Param() { vocabularyId }: GetWordListParamsDto,
     @Query() getWordListQueryDto: GetWordListQueryDto,
   ): Promise<any> {
-    return this.wordService.getList({ dictionaryId, ...getWordListQueryDto });
+    return this.wordService.getList({ vocabularyId, ...getWordListQueryDto });
   }
 
   @Put('/:wordId')
   @HttpCode(HttpStatus.NO_CONTENT)
   async replaceOne(
-    @Param() { dictionaryId, wordId }: ReplaceWordParamsDto,
+    @Param() { vocabularyId, wordId }: ReplaceWordParamsDto,
     @Body() replaceWordDto: ReplaceWordDto,
   ): Promise<void> {
-    await this.wordService.replaceOne({ dictionaryId, wordId, ...replaceWordDto });
+    await this.wordService.replaceOne({ vocabularyId, wordId, ...replaceWordDto });
   }
 
   @Delete('/:wordId')

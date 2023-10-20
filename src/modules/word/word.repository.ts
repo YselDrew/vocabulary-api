@@ -25,7 +25,7 @@ export class WordsRepository extends Repository<Word> {
   }
 
   async selectManyAndCount({
-    dictionaryId,
+    vocabularyId,
     sortOrder = SortOrder.DESC,
     sortField,
     limit = DEFAULT_WORD_LIST_LIMIT,
@@ -36,13 +36,13 @@ export class WordsRepository extends Repository<Word> {
     const baseQuery = this.createQueryBuilder()
       .select([
         'word_id AS "wordId"',
-        'dictionary_id AS "dictionaryId"',
+        'vocabulary_id AS "vocabularyId"',
         'word',
         'translation',
         'example',
         'created_at AS "createdAt"',
       ])
-      .where('dictionary_id = :dictionaryId', { dictionaryId })
+      .where('vocabulary_id = :vocabularyId', { vocabularyId })
       .orderBy(sortBy, sortOrder);
 
     const [total, words] = await Promise.all([
@@ -57,7 +57,7 @@ export class WordsRepository extends Repository<Word> {
     await this.update(wordId, word);
   }
 
-  async deleteOne({ dictionaryId, wordId }: DeleteWordOptions): Promise<void> {
-    await this.delete({ dictionaryId, wordId });
+  async deleteOne({ vocabularyId, wordId }: DeleteWordOptions): Promise<void> {
+    await this.delete({ vocabularyId, wordId });
   }
 }

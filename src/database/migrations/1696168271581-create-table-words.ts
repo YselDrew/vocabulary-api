@@ -5,16 +5,16 @@ export class CreateTableWords1696168271581 implements MigrationInterface {
     await queryRunner.query(`
       CREATE TABLE words (
         word_id           UUID            NOT NULL    DEFAULT uuid_generate_v4(),
-        dictionary_id     UUID            NOT NULL,
+        vocabulary_id     UUID            NOT NULL,
         word              VARCHAR(255)    NOT NULL,
         translation       VARCHAR(255)    NOT NULL,
         example           TEXT            NULL,
         created_at        TIMESTAMPTZ     NOT NULL    DEFAULT CURRENT_TIMESTAMP,
         CONSTRAINT words_pk 
           PRIMARY KEY (word_id),
-				CONSTRAINT words_dictionary_id_fk 
-          FOREIGN KEY (dictionary_id) 
-            REFERENCES dictionaries(dictionary_id) ON DELETE CASCADE
+				CONSTRAINT words_vocabulary_id_fk 
+          FOREIGN KEY (vocabulary_id) 
+            REFERENCES vocabularies(vocabulary_id) ON DELETE CASCADE
       );
     `);
   }

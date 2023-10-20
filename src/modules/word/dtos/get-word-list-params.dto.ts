@@ -1,3 +1,3 @@
-import { DictionaryIdDto } from 'src/modules/dictionary/dtos/dictionary-id.dto';
+import { VocabularyIdDto } from "src/modules/vocabulary/dtos/vocabulary-id.dto";
 
-export class GetWordListParamsDto extends DictionaryIdDto {}
+export class GetWordListParamsDto extends VocabularyIdDto {}

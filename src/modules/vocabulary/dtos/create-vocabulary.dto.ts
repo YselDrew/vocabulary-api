@@ -1,10 +1,10 @@
 import { IsUUID, IsString, Matches, IsNotEmpty } from 'class-validator';
 
-export class CreateDictionaryDto {
+export class CreateVocabularyDto {
   @IsString()
   @IsNotEmpty()
   @Matches(/^(\w+\s*)*$/) // bad one, investigate lazy regex
-  dictionaryName: string;
+  vocabularyName: string;
 
   @IsUUID()
   @IsNotEmpty()

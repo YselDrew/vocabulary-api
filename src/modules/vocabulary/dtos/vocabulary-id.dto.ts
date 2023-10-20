@@ -1,6 +1,6 @@
 import { IsUUID } from 'class-validator';
 
-export class DictionaryIdDto {
+export class VocabularyIdDto {
   @IsUUID()
-  dictionaryId: string;
+  vocabularyId: string;
 }

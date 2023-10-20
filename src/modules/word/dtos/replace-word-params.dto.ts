@@ -1,7 +1,7 @@
 import { IsUUID } from 'class-validator';
-import { DictionaryIdDto } from 'src/modules/dictionary/dtos/dictionary-id.dto';
+import { VocabularyIdDto } from 'src/modules/vocabulary/dtos/vocabulary-id.dto';
 
-export class ReplaceWordParamsDto extends DictionaryIdDto {
+export class ReplaceWordParamsDto extends VocabularyIdDto {
   @IsUUID()
   wordId: string;
 }

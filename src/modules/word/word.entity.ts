@@ -8,11 +8,11 @@ export class Word {
   wordId: string;
 
   @Column({
-    name: 'dictionary_id',
+    name: 'vocabulary_id',
     type: 'uuid',
     nullable: false,
   })
-  dictionaryId: string;
+  vocabularyId: string;
 
   @Column({
     name: 'word',

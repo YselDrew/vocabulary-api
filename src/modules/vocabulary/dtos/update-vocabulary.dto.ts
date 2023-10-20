@@ -1,10 +1,9 @@
 import { IsOptional } from 'class-validator';
+import { CreateVocabularyDto } from './create-vocabulary.dto';
 
-import { CreateDictionaryDto } from './create-dictionary.dto';
-
-export class UpdateDictionaryDto extends CreateDictionaryDto {
+export class UpdateVocabularyDto extends CreateVocabularyDto {
   @IsOptional()
-  dictionaryName: string;
+  vocabularyName: string;
 
   @IsOptional()
   nativeLanguageId: string;

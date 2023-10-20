@@ -20,8 +20,8 @@ export class WordService {
   async createMany(createWordsOptions: CreateWordsOptions): Promise<void> {
     await this.wordValidationService.validateOnCreate(createWordsOptions);
 
-    const { dictionaryId, words } = createWordsOptions;
-    const insertWordsOptions: InsertWordsOptions[] = words.map((word) => ({ dictionaryId, ...word }));
+    const { vocabularyId, words } = createWordsOptions;
+    const insertWordsOptions: InsertWordsOptions[] = words.map((word) => ({ vocabularyId, ...word }));
 
     await this.wordRepository.insertMany(insertWordsOptions);
   }

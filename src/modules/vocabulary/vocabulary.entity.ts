@@ -1,19 +1,19 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('dictionaries')
-export class Dictionary {
+@Entity('vocabularies')
+export class Vocabulary {
   @PrimaryGeneratedColumn('uuid', {
-    name: 'dictionary_id',
+    name: 'vocabulary_id',
   })
-  dictionaryId: string;
+  vocabularyId: string;
 
   @Column({
-    name: 'dictionary_name',
+    name: 'vocabulary_name',
     type: 'varchar',
     length: 100,
     nullable: false,
   })
-  dictionaryName: string;
+  vocabularyName: string;
 
   @Column({
     name: 'native_language_id',

@@ -1,5 +1,5 @@
 import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
-import { DictionaryValidationService } from 'src/modules/dictionary/services/dictionary-validation.service';
+import { VocabularyValidationService } from 'src/modules/vocabulary/services/vocabulary-validation.service';
 
 import { CreateWordsOptions, DeleteWordOptions, ReplaceWordOptions } from '../types/word.types';
 import { WordsRepository } from '../word.repository';
@@ -8,23 +8,23 @@ import { WordsRepository } from '../word.repository';
 export class WordValidationService {
   constructor(
     private wordRepository: WordsRepository,
-    private dictionaryValidationService: DictionaryValidationService,
+    private vocabularyValidationService: VocabularyValidationService,
   ) {}
 
-  async validateOnCreate({ dictionaryId }: CreateWordsOptions): Promise<void> {
-    await this.dictionaryValidationService.validateDictionaryExist(dictionaryId);
+  async validateOnCreate({ vocabularyId }: CreateWordsOptions): Promise<void> {
+    await this.vocabularyValidationService.validateVocabularyExist(vocabularyId);
   }
 
-  async valdiateOnReplace({ dictionaryId, wordId }: ReplaceWordOptions): Promise<void> {
-    await this.validateDictionaryAndWord(dictionaryId, wordId);
+  async valdiateOnReplace({ vocabularyId, wordId }: ReplaceWordOptions): Promise<void> {
+    await this.validateVocabularyAndWord(vocabularyId, wordId);
   }
 
-  async validateOnDelete({ dictionaryId, wordId }: DeleteWordOptions): Promise<void> {
-    await this.validateDictionaryAndWord(dictionaryId, wordId);
+  async validateOnDelete({ vocabularyId, wordId }: DeleteWordOptions): Promise<void> {
+    await this.validateVocabularyAndWord(vocabularyId, wordId);
   }
 
-  async validateDictionaryAndWord(dictionaryId: string, wordId: string): Promise<void> {
-    await this.dictionaryValidationService.validateDictionaryExist(dictionaryId);
+  async validateVocabularyAndWord(vocabularyId: string, wordId: string): Promise<void> {
+    await this.vocabularyValidationService.validateVocabularyExist(vocabularyId);
 
     await this.validateWordExist(wordId);
   }
